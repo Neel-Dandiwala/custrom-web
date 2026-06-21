@@ -58,9 +58,9 @@ const backers = [
     <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
       <div class="grid-overlay" />
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           <!-- Copy -->
-          <div class="max-w-2xl">
+          <div class="max-w-2xl lg:pt-6">
             <div class="eyebrow rounded-full">
               <span class="eyebrow-dot" />
               Revenue intelligence for B2B teams
