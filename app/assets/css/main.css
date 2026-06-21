@@ -1,0 +1,220 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Custrom brand palette — cooler "infra" indigo scale */
+  --color-indigo-50: #EEF2FF;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-200: #C7D2FE;
+  --color-indigo-300: #A5B4FC;
+  --color-indigo-400: #818CF8;
+  --color-indigo-500: #6366F1;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-700: #4338CA;
+  --color-indigo-800: #3730A3;
+  --color-indigo-900: #312E81;
+  --color-indigo-950: #1E1B4B;
+}
+
+:root {
+  /* Primary — indigo → violet (brand + CTAs) */
+  --c-primary-start: #6366F1;
+  --c-primary-end: #A855F7;
+  /* Accent — teal (opportunity / pre-sale) */
+  --c-accent-start: #2DD4BF;
+  --c-accent-end: #14B8A6;
+  /* Risk — rose (churn / post-sale) */
+  --c-risk-start: #FB7185;
+  --c-risk-end: #F43F5E;
+  /* Surface ink */
+  --c-bg: #07070B;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--c-bg);
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  color: #E8E8F0;
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Backdrops ---- */
+.page-haze {
+  background:
+    radial-gradient(900px circle at 50% -8%, rgba(99, 102, 241, 0.10) 0%, transparent 60%),
+    var(--c-bg);
+}
+
+.hero-backdrop {
+  position: relative;
+  background:
+    radial-gradient(700px circle at 12% 8%, rgba(99, 102, 241, 0.16) 0%, transparent 55%),
+    radial-gradient(680px circle at 92% 18%, rgba(45, 212, 191, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #0A0A10 0%, var(--c-bg) 100%);
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+/* ---- Type accents ---- */
+.headline-brand,
+.headline-interaction {
+  color: transparent;
+  background-image: linear-gradient(118deg, #C7D2FE 0%, var(--c-primary-start) 45%, var(--c-primary-end) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.headline-product {
+  color: transparent;
+  background-image: linear-gradient(118deg, var(--c-accent-start) 0%, var(--c-accent-end) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.sv-section-heading {
+  font-size: clamp(1.9rem, 3.6vw, 2.65rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  color: #F4F4F8;
+}
+
+.sv-body-copy {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(232, 232, 240, 0.62);
+}
+
+/* ---- Eyebrow / chips ---- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 232, 240, 0.66);
+  backdrop-filter: blur(8px);
+}
+
+.eyebrow-dot {
+  height: 0.45rem;
+  width: 0.45rem;
+  border-radius: 9999px;
+  background-image: linear-gradient(135deg, var(--c-primary-start) 0%, var(--c-primary-end) 100%);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.7);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(232, 232, 240, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Buttons ---- */
+.button-primary {
+  background-image: linear-gradient(120deg, var(--c-primary-start) 0%, var(--c-primary-end) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 40px -18px rgba(124, 58, 237, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.button-primary:hover {
+  box-shadow: 0 22px 48px -16px rgba(124, 58, 237, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #F4F4F8;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* ---- Surfaces (dark glass) ---- */
+.surface-frame {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow: 0 50px 100px -40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.surface-soft {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.surface-product {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  box-shadow: 0 30px 60px -44px rgba(45, 212, 191, 0.45);
+}
+
+.surface-depth {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(99, 102, 241, 0.30);
+}
+
+.surface-brand {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(168, 85, 247, 0.30);
+}
+
+.surface-risk {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(244, 63, 94, 0.30);
+  box-shadow: 0 30px 60px -44px rgba(244, 63, 94, 0.4);
+}
+
+.row-inner {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
+}
+
+/* ---- Status dots ---- */
+.dot-good { background: linear-gradient(135deg, #2DD4BF, #14B8A6); box-shadow: 0 0 8px rgba(45, 212, 191, 0.7); }
+.dot-warn { background: linear-gradient(135deg, #FBBF24, #F59E0B); box-shadow: 0 0 8px rgba(245, 158, 11, 0.6); }
+.dot-risk { background: linear-gradient(135deg, #FB7185, #F43F5E); box-shadow: 0 0 8px rgba(244, 63, 94, 0.7); }
