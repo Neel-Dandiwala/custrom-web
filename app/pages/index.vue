@@ -110,7 +110,8 @@ const backers = [
           <div class="surface-frame overflow-hidden rounded-[20px]">
             <div class="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
               <div class="flex items-center gap-3">
-                <span class="flex h-7 w-7 items-center justify-center rounded-[9px] bg-gradient-to-br from-[#2DD4BF] to-[#6366F1] text-xs font-bold text-white">C</span>
+                <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
+
                 <div>
                   <p class="text-sm font-semibold leading-none text-white">Revenue workspace</p>
                   <p class="mt-1 text-xs text-white/45">Lead scoring &amp; churn signals</p>

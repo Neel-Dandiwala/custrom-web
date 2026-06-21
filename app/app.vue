@@ -6,10 +6,13 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' },
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap' }
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap' }
   ],
   htmlAttrs: {
     lang: 'en',
@@ -42,8 +45,8 @@ const nav = [
       <header class="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
           <NuxtLink to="/" class="flex items-center gap-2.5">
-            <span class="flex h-7 w-7 items-center justify-center rounded-[9px] bg-gradient-to-br from-[#2DD4BF] to-[#6366F1] text-sm font-bold text-white">C</span>
-            <span class="text-lg font-bold tracking-[-0.04em] text-white">Custrom</span>
+            <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
+            <span class="wordmark text-xl text-white">Custrom</span>
           </NuxtLink>
 
           <nav class="hidden items-center gap-8 md:flex">
@@ -74,8 +77,8 @@ const nav = [
         <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-2.5">
-              <span class="flex h-7 w-7 items-center justify-center rounded-[9px] bg-gradient-to-br from-[#2DD4BF] to-[#6366F1] text-sm font-bold text-white">C</span>
-              <span class="text-base font-bold tracking-[-0.04em] text-white">Custrom</span>
+              <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
+              <span class="wordmark text-lg text-white">Custrom</span>
             </div>
             <p class="max-w-md text-sm leading-relaxed text-white/55">
               Early stage. Looking for teams to build this with. No pitch, just a real conversation.
