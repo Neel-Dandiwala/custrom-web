@@ -88,6 +88,8 @@ body {
   background-image: linear-gradient(118deg, #C7D2FE 0%, var(--c-primary-start) 45%, var(--c-primary-end) 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  /* keep descenders (y, g) inside the gradient paint box under tight leading */
+  padding-bottom: 0.14em;
 }
 
 .headline-product {
@@ -95,6 +97,7 @@ body {
   background-image: linear-gradient(118deg, var(--c-accent-start) 0%, var(--c-accent-end) 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  padding-bottom: 0.14em;
 }
 
 .sv-section-heading {
