@@ -62,7 +62,7 @@ const nav = [
             :href="CALENDLY_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="button-primary hidden items-center justify-center rounded-[12px] px-4 py-2.5 text-sm font-semibold sm:inline-flex"
+            class="button-primary hidden items-center justify-center rounded-[10px] px-4 py-2.5 text-sm font-semibold sm:inline-flex"
           >
             Book a 15-min call
           </a>

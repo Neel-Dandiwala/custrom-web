@@ -16,8 +16,8 @@ const churnRows = [
 ]
 
 const toneText = {
-  good: 'text-[#2DD4BF]',
-  warn: 'text-[#FBBF24]',
+  good: 'text-[#5EEAD4]',
+  warn: 'text-[#FCD34D]',
   risk: 'text-[#FB7185]'
 }
 const toneDot = {
@@ -57,8 +57,8 @@ const backers = [
     <!-- ============ HERO ============ -->
     <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
       <div class="grid-overlay" />
-      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
+        <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
           <!-- Copy -->
           <div class="max-w-2xl lg:pt-6">
             <div class="eyebrow rounded-full">
@@ -81,14 +81,14 @@ const backers = [
                 :href="CALENDLY_URL"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="button-primary inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-3.5 text-sm font-semibold"
+                class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3.5 text-sm font-semibold"
               >
                 Book a 15-minute call
                 <UIcon name="i-lucide-arrow-right" class="size-4" />
               </a>
               <a
                 href="#how-it-works"
-                class="button-secondary inline-flex items-center justify-center rounded-[14px] px-6 py-3.5 text-sm font-semibold"
+                class="button-secondary inline-flex items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold"
               >
                 See how it works
               </a>
@@ -96,18 +96,18 @@ const backers = [
 
             <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/55">
               <span class="flex items-center gap-2">
-                <UIcon name="i-lucide-check-circle-2" class="size-4 text-[#2DD4BF]" />
+                <UIcon name="i-lucide-check-circle-2" class="size-4 text-white/40" />
                 Uses your existing CRM &amp; activity data
               </span>
               <span class="flex items-center gap-2">
-                <UIcon name="i-lucide-check-circle-2" class="size-4 text-[#2DD4BF]" />
+                <UIcon name="i-lucide-check-circle-2" class="size-4 text-white/40" />
                 No new tools. No new integrations.
               </span>
             </div>
           </div>
 
           <!-- Dashboard mockup -->
-          <div class="surface-frame overflow-hidden rounded-[20px]">
+          <div class="surface-frame overflow-hidden rounded-[16px]">
             <div class="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
               <div class="flex items-center gap-3">
                 <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
@@ -127,17 +127,17 @@ const backers = [
             <div class="space-y-5 p-5">
               <!-- KPI row · illustrative product state -->
               <div class="grid grid-cols-3 gap-3">
-                <div class="surface-soft rounded-[14px] p-3.5">
+                <div class="surface-soft rounded-[12px] p-3.5">
                   <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/42">Leads to call</p>
                   <p class="mt-2 text-2xl font-semibold tracking-tight text-white">12</p>
                   <p class="mt-0.5 text-[11px] font-medium text-white/45">ranked today</p>
                 </div>
-                <div class="surface-soft rounded-[14px] p-3.5">
+                <div class="surface-soft rounded-[12px] p-3.5">
                   <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/42">At-risk accounts</p>
                   <p class="mt-2 text-2xl font-semibold tracking-tight text-white">5</p>
                   <p class="mt-0.5 text-[11px] font-medium text-white/45">flagged</p>
                 </div>
-                <div class="surface-soft rounded-[14px] p-3.5">
+                <div class="surface-soft rounded-[12px] p-3.5">
                   <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/42">Renewals soon</p>
                   <p class="mt-2 text-2xl font-semibold tracking-tight text-white">8</p>
                   <p class="mt-0.5 text-[11px] font-medium text-white/45">next 60 days</p>
@@ -195,9 +195,9 @@ const backers = [
 
     <!-- ============ PAIN POINTS ============ -->
     <section class="border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#FB7185]">The leak is already happening</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">The leak is already happening</p>
           <h2 class="sv-section-heading mt-3">Revenue you've already earned is quietly slipping away</h2>
           <p class="sv-body-copy mt-4">
             Most teams don't have a lead problem or a churn problem. They have a
@@ -205,14 +205,14 @@ const backers = [
           </p>
         </div>
 
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <div class="mt-16 grid gap-5 md:grid-cols-3">
           <div
             v-for="p in painPoints"
             :key="p.title"
-            class="surface-soft rounded-[18px] p-6"
+            class="surface-soft rounded-[14px] p-6"
           >
-            <div class="flex h-11 w-11 items-center justify-center rounded-[12px] border border-[#FB7185]/25 bg-[#FB7185]/10">
-              <UIcon :name="p.icon" class="size-5 text-[#FB7185]" />
+            <div class="icon-tile h-11 w-11">
+              <UIcon :name="p.icon" class="size-5" />
             </div>
             <h3 class="mt-5 text-lg font-semibold tracking-[-0.01em] text-white">{{ p.title }}</h3>
             <p class="mt-2.5 text-sm leading-relaxed text-white/58">{{ p.body }}</p>
@@ -223,9 +223,9 @@ const backers = [
 
     <!-- ============ HOW IT WORKS / TWO COLUMNS ============ -->
     <section id="how-it-works" class="border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#818CF8]">Two sides of the same revenue</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">Two sides of the same revenue</p>
           <h2 class="sv-section-heading mt-3">Catch them on the way in. And on the way out.</h2>
           <p class="sv-body-copy mt-4">
             Both sides run on data your team already has — CRM, activity, and touchpoints.
@@ -233,11 +233,11 @@ const backers = [
           </p>
         </div>
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        <div class="mt-16 grid gap-6 lg:grid-cols-2">
           <!-- Pre-sale -->
-          <div id="pre-sale" class="surface-product flex flex-col rounded-[20px] p-7">
+          <div id="pre-sale" class="surface-product flex flex-col rounded-[16px] p-7 lg:p-8">
             <div class="flex items-center gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#2DD4BF] to-[#14B8A6] text-[#06231f]">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-target" class="size-5" />
               </span>
               <span class="chip">Pre-sale</span>
@@ -249,16 +249,16 @@ const backers = [
             </p>
             <ul class="mt-6 space-y-3">
               <li v-for="item in ['Rank every inbound lead by real likelihood to close', 'Surface buying signals hiding in CRM + activity data', 'Point reps at the 20% of leads driving 80% of revenue']" :key="item" class="flex items-start gap-3 text-sm text-white/70">
-                <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-[#2DD4BF]" />
+                <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-white/45" />
                 <span>{{ item }}</span>
               </li>
             </ul>
           </div>
 
           <!-- Post-sale -->
-          <div id="post-sale" class="surface-risk flex flex-col rounded-[20px] p-7">
+          <div id="post-sale" class="surface-risk flex flex-col rounded-[16px] p-7 lg:p-8">
             <div class="flex items-center gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#FB7185] to-[#F43F5E] text-white">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-heart-pulse" class="size-5" />
               </span>
               <span class="chip">Post-sale</span>
@@ -270,7 +270,7 @@ const backers = [
             </p>
             <ul class="mt-6 space-y-3">
               <li v-for="item in ['Spot accounts going quiet weeks before they cancel', 'Combine usage, support, and engagement into one risk score', 'Give CS a ranked save-list instead of a surprise']" :key="item" class="flex items-start gap-3 text-sm text-white/70">
-                <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-[#FB7185]" />
+                <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-white/45" />
                 <span>{{ item }}</span>
               </li>
             </ul>
@@ -281,10 +281,10 @@ const backers = [
 
     <!-- ============ VALUE ============ -->
     <section class="border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <div class="max-w-xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#818CF8]">What you get</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">What you get</p>
             <h2 class="sv-section-heading mt-3">Stop guessing on both ends of the funnel</h2>
             <p class="sv-body-copy mt-4">
               The signal is already in your data — it just isn't reaching your team in time.
@@ -298,7 +298,7 @@ const backers = [
               :href="CALENDLY_URL"
               target="_blank"
               rel="noopener noreferrer"
-              class="button-primary mt-7 inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-3.5 text-sm font-semibold"
+              class="button-primary mt-7 inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
               Look at it with us
               <UIcon name="i-lucide-arrow-right" class="size-4" />
@@ -306,29 +306,29 @@ const backers = [
           </div>
 
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="surface-depth rounded-[18px] p-6">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#6366F1] to-[#A855F7] text-white">
+            <div class="surface-depth rounded-[14px] p-6">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-list-ordered" class="size-5" />
               </span>
               <p class="mt-4 text-base font-semibold tracking-[-0.01em] text-white">Focus reps on the right leads</p>
               <p class="mt-1.5 text-sm leading-relaxed text-white/58">A daily, ranked call list — so SDR hours go to prospects that can actually close.</p>
             </div>
-            <div class="surface-brand rounded-[18px] p-6">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#818CF8] to-[#6366F1] text-white">
+            <div class="surface-brand rounded-[14px] p-6">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-search" class="size-5" />
               </span>
               <p class="mt-4 text-base font-semibold tracking-[-0.01em] text-white">See the signal you already have</p>
               <p class="mt-1.5 text-sm leading-relaxed text-white/58">Buying intent and risk pulled out of CRM, activity, and touchpoints — read for you.</p>
             </div>
-            <div class="surface-risk rounded-[18px] p-6">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#FB7185] to-[#F43F5E] text-white">
+            <div class="surface-risk rounded-[14px] p-6">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-bell-ring" class="size-5" />
               </span>
               <p class="mt-4 text-base font-semibold tracking-[-0.01em] text-white">Get warned before they leave</p>
               <p class="mt-1.5 text-sm leading-relaxed text-white/58">Early flags on accounts going quiet, while there's still time to act.</p>
             </div>
-            <div class="surface-product rounded-[18px] p-6">
-              <span class="flex h-10 w-10 items-center justify-center rounded-[12px] bg-gradient-to-br from-[#2DD4BF] to-[#14B8A6] text-[#06231f]">
+            <div class="surface-product rounded-[14px] p-6">
+              <span class="icon-tile h-10 w-10">
                 <UIcon name="i-lucide-plug" class="size-5" />
               </span>
               <p class="mt-4 text-base font-semibold tracking-[-0.01em] text-white">No new tools to adopt</p>
@@ -361,7 +361,7 @@ const backers = [
     <!-- ============ FINAL CTA ============ -->
     <section>
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div class="surface-frame relative overflow-hidden rounded-[28px] px-6 py-14 text-center sm:px-12">
+        <div class="surface-frame relative overflow-hidden rounded-[20px] px-6 py-16 text-center sm:px-12">
           <div class="pointer-events-none absolute inset-0 hero-backdrop opacity-90" />
           <div class="grid-overlay" />
           <div class="relative">
@@ -382,7 +382,7 @@ const backers = [
                 :href="CALENDLY_URL"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="button-primary inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-4 text-base font-semibold"
+                class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-7 py-4 text-base font-semibold"
               >
                 Book a 15-minute call
                 <UIcon name="i-lucide-arrow-right" class="size-4" />
