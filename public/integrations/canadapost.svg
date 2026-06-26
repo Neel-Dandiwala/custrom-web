@@ -1,0 +1,29 @@
+<svg version="1.1" id="Layer_1" xmlns:x="ns_extend;" xmlns:i="ns_ai;" xmlns:graph="ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 61.4 62.4" style="enable-background:new 0 0 61.4 62.4;" xml:space="preserve">
+ <style type="text/css">
+  .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#D3200C;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+ </style>
+ <metadata>
+  <sfw xmlns="ns_sfw;">
+   <slices>
+   </slices>
+   <sliceSourceBounds bottomLeftOrigin="true" height="62.4" width="61.4" x="127.5" y="6.7">
+   </sliceSourceBounds>
+  </sfw>
+ </metadata>
+ <desc>
+  Created with Sketch.
+ </desc>
+ <g id="Level-1-_x2B_-2">
+  <g id="Home-_x3E_-Business" transform="translate(-39.000000, -63.000000)">
+   <g id="CP_4C_E" transform="translate(39.000000, 63.000000)">
+    <path id="Fill-4" class="st0" d="M61.4,31.2c0,17.2-13.7,31.2-30.7,31.2C13.8,62.4,0,48.5,0,31.2C0,14,13.7,0,30.7,0
+				C47.7,0,61.4,14,61.4,31.2">
+    </path>
+    <polyline id="Fill-5" class="st1" points="21,35.3 23.2,33 47.5,31.9 48.6,30.8 24.6,30.8 11.5,15.3 55.1,30.1 40.6,44.8 
+				11.5,44.8 14.5,41.9 38.8,40.8 39.8,39.7 16.6,39.7 18.8,37.5 43.1,36.4 44.2,35.3 21,35.3 			">
+    </polyline>
+   </g>
+  </g>
+ </g>
+</svg>
