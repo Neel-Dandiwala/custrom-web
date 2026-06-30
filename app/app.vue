@@ -87,12 +87,23 @@ const nav = [
           <div class="section-divider my-7" />
           <div class="flex flex-col items-start justify-between gap-3 text-sm text-white/45 sm:flex-row sm:items-center">
             <p>© {{ new Date().getFullYear() }} Custrom · custrom.com</p>
-            <a
-              :href="CALENDLY_URL"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-medium text-white/60 transition-colors hover:text-white"
-            >calendly.com/neeldandiwala/30min</a>
+            <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <a
+                href="https://unified.to"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-1.5 font-medium text-white/45 transition-colors hover:text-white"
+              >
+                Powered by
+                <span class="text-white/70">Unified.to</span>
+              </a>
+              <a
+                :href="CALENDLY_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium text-white/60 transition-colors hover:text-white"
+              >calendly.com/neeldandiwala/30min</a>
+            </div>
           </div>
         </div>
       </footer>
