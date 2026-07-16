@@ -146,7 +146,7 @@ function toggleStack(option) {
             href="#value"
             class="button-secondary inline-flex items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold"
           >
-            See the deal
+            See the deal →
           </a>
         </div>
       </div>
