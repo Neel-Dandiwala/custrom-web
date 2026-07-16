@@ -2,7 +2,7 @@
 const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
 
 const title = 'Design Partner Program | Custrom'
-const description = 'Join Custrom\'s Design Partner Program: lock in founding pricing, get direct founder support, and go live in under 7 days with zero technical setup.'
+const description = 'An exclusive Design Partner Program with locked founding pricing, direct founder support, and zero technical setup.'
 
 useSeoMeta({
   title,
@@ -13,8 +13,8 @@ useSeoMeta({
 })
 
 const hero = {
-  headline: 'Shape the future of customer retention',
-  sub: 'Join our exclusive Design Partner Program. Get a locked founding price, direct founder support, and zero technical setup.'
+  headline: 'Shape the future of customer satisfaction',
+  sub: 'An exclusive Design Partner Program with locked founding pricing, direct founder support, and zero technical setup.'
 }
 
 const getItems = [
@@ -25,6 +25,18 @@ const getItems = [
   {
     title: 'Direct access',
     body: 'Dedicated Slack/WhatsApp channel directly with the founding team'
+  },
+  {
+    title: 'Live Account Health View in under 7 days',
+    body: 'See account health across your customer base in the first week'
+  },
+  {
+    title: '24 hr alerts for failed payments',
+    body: 'Get notified within 24 hours when payments fail'
+  },
+  {
+    title: 'Early signal detection for quiet accounts',
+    body: 'Spot disengaging accounts before they cancel'
   }
 ]
 
@@ -44,21 +56,6 @@ const askItems = [
   {
     title: 'Case study',
     body: 'Case study approval (only if the pilot achieves your goals)'
-  }
-]
-
-const guaranteeRows = [
-  {
-    deliver: 'Live Account Health View in under 7 days',
-    achieve: 'Identify 2+ hidden customer risks'
-  },
-  {
-    deliver: '24 hr alerts for failed payments',
-    achieve: 'Catch 1+ churn risk before cancellation'
-  },
-  {
-    deliver: 'Early signal detection for quiet accounts',
-    achieve: 'Recovered revenue that pays for the product'
   }
 ]
 
@@ -129,7 +126,7 @@ function toggleStack(option) {
       <div class="relative mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <h1 class="mx-auto max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
           Shape the future of
-          <span class="headline-interaction">customer retention</span>
+          <span class="headline-interaction">customer satisfaction</span>
         </h1>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/62">
           {{ hero.sub }}
@@ -160,9 +157,6 @@ function toggleStack(option) {
             A founding partnership,
             <span class="headline-interaction">not a waitlist</span>
           </h2>
-          <p class="sv-body-copy mt-4">
-            Three to five teams get white glove onboarding and locked founding pricing, in exchange for a lightweight pilot commitment.
-          </p>
         </div>
 
         <div class="mt-14 grid gap-6 lg:grid-cols-2">
@@ -189,42 +183,6 @@ function toggleStack(option) {
                 </div>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GUARANTEE -->
-    <section id="guarantee" class="border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="sv-section-heading">
-            Six weeks,
-            <span class="headline-interaction">measured outcomes</span>
-          </h2>
-          <p class="sv-body-copy mt-4">
-            We commit to specific deliverables. You commit to using the insights, and we score the pilot together at week six.
-          </p>
-        </div>
-
-        <div class="mt-12 overflow-hidden rounded-[16px] border border-white/10">
-          <div class="grid grid-cols-2 border-b border-white/10 bg-white/[0.03]">
-            <p class="px-5 py-3.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">We deliver</p>
-            <p class="px-5 py-3.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">You achieve</p>
-          </div>
-          <div
-            v-for="(row, i) in guaranteeRows"
-            :key="i"
-            class="grid grid-cols-1 border-b border-white/10 last:border-b-0 sm:grid-cols-2"
-          >
-            <div class="flex items-start gap-2.5 px-5 py-4 text-sm text-white/80">
-              <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-[#5EEAD4]" />
-              {{ row.deliver }}
-            </div>
-            <div class="flex items-start gap-2.5 border-t border-white/10 px-5 py-4 text-sm text-white/65 sm:border-t-0 sm:border-l">
-              <UIcon name="i-lucide-arrow-right" class="mt-0.5 size-4 shrink-0 text-white/35" />
-              {{ row.achieve }}
-            </div>
           </div>
         </div>
       </div>
