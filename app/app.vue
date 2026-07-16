@@ -20,8 +20,8 @@ useHead({
   }
 })
 
-const title = 'Custrom — Don\'t lose the leads you already have'
-const description = 'Custrom helps B2B teams spot which prospects are worth pursuing and which customers are about to leave — before it\'s too late. Built on the CRM and activity data you already have.'
+const title = 'Custrom: Don\'t lose the leads you already have'
+const description = 'Custrom helps B2B teams spot which prospects are worth pursuing and which customers are about to leave, before it\'s too late. Built on the CRM and activity data you already have.'
 
 useSeoMeta({
   title,
@@ -32,11 +32,15 @@ useSeoMeta({
 })
 
 const nav = [
-  { label: 'How it works', to: '#how-it-works' },
-  { label: 'Pre-sale', to: '#pre-sale' },
-  { label: 'Post-sale', to: '#post-sale' },
-  { label: 'Backed by', to: '#backed-by' }
+  { label: 'Process', to: '/#process' },
+  { label: 'Churn signals', to: '/#personas' },
+  { label: 'Integrations', to: '/integrations' },
+  { label: 'Design partners', to: '/design-partners' }
 ]
+
+function isRouteLink(to) {
+  return to.startsWith('/') && !to.includes('#')
+}
 </script>
 
 <template>
@@ -50,12 +54,19 @@ const nav = [
           </NuxtLink>
 
           <nav class="hidden items-center gap-8 md:flex">
-            <a
-              v-for="item in nav"
-              :key="item.to"
-              :href="item.to"
-              class="text-sm font-medium text-white/56 transition-colors hover:text-white"
-            >{{ item.label }}</a>
+            <template v-for="item in nav" :key="item.to">
+              <NuxtLink
+                v-if="isRouteLink(item.to)"
+                :to="item.to"
+                class="text-sm font-medium text-white/56 transition-colors hover:text-white"
+                active-class="!text-white"
+              >{{ item.label }}</NuxtLink>
+              <a
+                v-else
+                :href="item.to"
+                class="text-sm font-medium text-white/56 transition-colors hover:text-white"
+              >{{ item.label }}</a>
+            </template>
           </nav>
 
           <a
@@ -64,7 +75,7 @@ const nav = [
             rel="noopener noreferrer"
             class="button-primary hidden items-center justify-center rounded-[10px] px-4 py-2.5 text-sm font-semibold sm:inline-flex"
           >
-            Book a 15-min call
+            Book a 15 min call
           </a>
         </div>
       </header>
@@ -80,9 +91,10 @@ const nav = [
               <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
               <span class="wordmark text-lg text-white">Custrom</span>
             </div>
-            <p class="max-w-md text-sm leading-relaxed text-white/55">
-              Early stage. Looking for teams to build this with. No pitch, just a real conversation.
-            </p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <NuxtLink to="/integrations" class="font-medium text-white/55 transition-colors hover:text-white">Integrations</NuxtLink>
+              <NuxtLink to="/design-partners" class="font-medium text-white/55 transition-colors hover:text-white">Design partners</NuxtLink>
+            </div>
           </div>
           <div class="section-divider my-7" />
           <div class="flex flex-col items-start justify-between gap-3 text-sm text-white/45 sm:flex-row sm:items-center">

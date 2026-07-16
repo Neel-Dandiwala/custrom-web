@@ -17,7 +17,9 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    '/integrations': { prerender: true },
+    '/design-partners': { prerender: true }
   },
 
   compatibilityDate: '2025-01-15',
