@@ -1,6 +1,4 @@
 <script setup>
-import { integrationLogos } from '~/data/integrationLogos'
-
 const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
 
 const title = 'Design Partner Program | Custrom'
@@ -15,16 +13,11 @@ useSeoMeta({
 })
 
 const hero = {
-  badge: 'Founding cohort: limited to 3 to 5 teams',
   headline: 'Shape the future of customer retention',
   sub: 'Join our exclusive Design Partner Program. Get a locked founding price, direct founder support, and zero technical setup.'
 }
 
 const getItems = [
-  {
-    title: 'Founding rate',
-    body: '$1,500/mo (locked for 12 months)'
-  },
   {
     title: 'Zero overhead',
     body: 'No setup fees, read only integration, live in under 7 days'
@@ -68,12 +61,6 @@ const guaranteeRows = [
     achieve: 'Recovered revenue that pays for the product'
   }
 ]
-
-const integrationIds = ['salesforce', 'stripe', 'posthog', 'zendesk', 'slack']
-const integrationStrip = integrationIds.map((id) => {
-  const item = integrationLogos.find((logo) => logo.id === id)
-  return item ?? { id, name: id, logo: '' }
-})
 
 const stackOptions = ['Salesforce', 'Stripe', 'PostHog', 'Zendesk', 'Slack']
 
@@ -140,11 +127,7 @@ function toggleStack(option) {
     <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
       <div class="grid-overlay" />
       <div class="relative mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
-        <div class="eyebrow mx-auto rounded-full">
-          <span class="eyebrow-dot" />
-          {{ hero.badge }}
-        </div>
-        <h1 class="mx-auto mt-7 max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
+        <h1 class="mx-auto max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
           Shape the future of
           <span class="headline-interaction">customer retention</span>
         </h1>
@@ -215,8 +198,7 @@ function toggleStack(option) {
     <section id="guarantee" class="border-b border-white/10">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">Pilot guarantee</p>
-          <h2 class="sv-section-heading mt-3">
+          <h2 class="sv-section-heading">
             Six weeks,
             <span class="headline-interaction">measured outcomes</span>
           </h2>
@@ -248,44 +230,11 @@ function toggleStack(option) {
       </div>
     </section>
 
-    <!-- INTEGRATION STRIP -->
-    <section class="border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <p class="text-center text-sm text-white/45">
-          Connects in minutes · read only · no code required
-        </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <div
-            v-for="item in integrationStrip"
-            :key="item.id"
-            class="int-logo-tile int-logo-tile--lg"
-            :title="item.name"
-          >
-            <img
-              v-if="item.logo"
-              :src="item.logo"
-              :alt="item.name"
-              width="36"
-              height="36"
-              loading="lazy"
-            >
-            <span v-else class="text-xs text-black/60">{{ item.name }}</span>
-          </div>
-        </div>
-        <div class="mt-8 text-center">
-          <NuxtLink to="/integrations" class="text-sm font-medium text-white/60 transition-colors hover:text-white">
-            See all integrations →
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
-
     <!-- APPLY -->
-    <section id="apply">
+    <section id="apply" class="border-b border-white/10">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">Apply</p>
-          <h2 class="sv-section-heading mt-3">
+          <h2 class="sv-section-heading">
             Apply for the
             <span class="headline-interaction">Design Partner Cohort</span>
           </h2>

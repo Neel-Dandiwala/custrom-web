@@ -35,7 +35,7 @@ const nav = [
   { label: 'Process', to: '/#process' },
   { label: 'Churn signals', to: '/#personas' },
   { label: 'Integrations', to: '/integrations' },
-  { label: 'Design partners', to: '/design-partners' }
+  { label: 'Design Partner Program', to: '/design-partners' }
 ]
 
 function isRouteLink(to) {
@@ -93,7 +93,7 @@ function isRouteLink(to) {
             </div>
             <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               <NuxtLink to="/integrations" class="font-medium text-white/55 transition-colors hover:text-white">Integrations</NuxtLink>
-              <NuxtLink to="/design-partners" class="font-medium text-white/55 transition-colors hover:text-white">Design partners</NuxtLink>
+              <NuxtLink to="/design-partners" class="font-medium text-white/55 transition-colors hover:text-white">Design Partner Program</NuxtLink>
             </div>
           </div>
           <div class="section-divider my-7" />
