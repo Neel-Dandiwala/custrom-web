@@ -126,7 +126,7 @@ function toggleStack(option) {
     <!-- HERO -->
     <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
       <div class="grid-overlay" />
-      <div class="relative mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
+      <div class="relative mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <h1 class="mx-auto max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
           Shape the future of
           <span class="headline-interaction">customer retention</span>
