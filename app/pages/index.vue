@@ -1,63 +1,78 @@
 <script setup>
 const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
 
+const heroStatement = {
+  line1Accent: 'Effortless',
+  line1Rest: 'customer satisfaction',
+  line2: 'and churn monitoring',
+  sub: 'Identifying at-risk accounts before they leave, using the data your team already generates every day.'
+}
+
 const laptopDashboard = {
   stats: [
-    { label: 'Need attention', value: '4', sub: 'across 3 owners', highlight: true },
-    { label: 'High risk', value: '3', sub: '+1 since yesterday' },
-    { label: 'Expansion', value: '2', sub: '$58k pipeline' },
-    { label: 'SLO breaches', value: '12', sub: '7 accounts' }
+    { label: 'Need attention today', value: '4', sub: 'across 4 owners' },
+    { label: 'High risk accounts', value: '2', sub: '+1 since yesterday', tone: 'risk' },
+    { label: 'Open expansion signals', value: '1', sub: '$54k pipeline', tone: 'good' },
+    { label: 'SLO breaches this week', value: '3', sub: '3 accounts affected', tone: 'warn' }
   ],
   accounts: [
     {
       initials: 'AC',
       name: 'Acme Corp',
+      logo: '/mockups/logo-acme.svg',
       stage: 'Implementation',
       health: 52,
       type: 'High Risk',
       tone: 'risk',
       reason: 'SSO blocker mentioned 4× in Slack',
-      owner: 'Riya',
+      owner: 'Riya D',
       ownerInit: 'RD',
+      ownerAvatar: '/mockups/avatar-riya.svg',
       activity: '2h ago',
       action: 'Escalate blocker'
     },
     {
       initials: 'NA',
       name: 'Northstar AI',
+      logo: '/mockups/logo-northstar.svg',
       stage: 'Active Customer',
       health: 41,
       type: 'Churn Risk',
-      tone: 'risk',
+      tone: 'churn',
       reason: 'Usage dropped · renewal in 31 days',
-      owner: 'Alex',
+      owner: 'Alex K',
       ownerInit: 'AK',
+      ownerAvatar: '/mockups/avatar-alex.svg',
       activity: '1d ago',
-      action: 'Book check in'
+      action: 'Book check-in'
     },
     {
       initials: 'BL',
       name: 'BrightLabs',
+      logo: '/mockups/logo-brightlabs.svg',
       stage: 'Active Customer',
       health: 88,
       type: 'Expansion',
       tone: 'good',
       reason: 'Asked about adding another team',
-      owner: 'Neel',
+      owner: 'Neel D',
       ownerInit: 'ND',
+      ownerAvatar: '/mockups/avatar-neel.svg',
       activity: '4h ago',
       action: 'Send expansion plan'
     },
     {
       initials: 'OF',
       name: 'Orbital Finance',
+      logo: '/mockups/logo-orbital.svg',
       stage: 'Enterprise',
       health: 60,
       type: 'SLO Breach',
       tone: 'warn',
       reason: 'P1 ticket unresolved for 2 days',
-      owner: 'Sam',
+      owner: 'Sam P',
       ownerInit: 'SP',
+      ownerAvatar: '/mockups/avatar-sam.svg',
       activity: '6h ago',
       action: 'Notify support lead'
     }
@@ -101,39 +116,57 @@ const mid = Math.ceil(integrationLogos.length / 2)
 const integrationsRow1 = [...integrationLogos.slice(0, mid), ...integrationLogos.slice(0, mid)]
 const integrationsRow2 = [...integrationLogos.slice(mid), ...integrationLogos.slice(mid)]
 
-const toneText = {
-  good: 'text-[#5EEAD4]',
-  warn: 'text-[#FCD34D]',
-  risk: 'text-[#FB7185]'
-}
-
 const backers = [
   { name: 'DMZ', note: 'Accelerator' },
   { name: 'Antler', note: 'Backed by experts' },
   { name: 'Techstars', note: 'Backed by experts' },
   { name: 'Y Combinator', note: 'Backed by experts' }
 ]
+
+onMounted(async () => {
+  const { gsap } = await import('gsap')
+
+  gsap.timeline()
+    .fromTo('.hero-intro-inner',
+      { opacity: 0, y: 28 },
+      { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
+      0.25)
+    .fromTo('.hero-laptop-scene',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.85, ease: 'power2.out' },
+      0.45)
+})
 </script>
 
 <template>
   <div>
     <!-- ============ HERO ============ -->
-    <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
-      <div class="grid-overlay" />
-      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:max-w-[1200px] lg:px-8 lg:py-24">
-        <!-- Copy -->
-        <div class="mx-auto max-w-3xl text-center">
-          <h1 class="text-[clamp(2.5rem,5.2vw,4.3rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-white">
-            <span class="headline-interaction">Effortless</span> customer satisfaction
-            <span class="block">and churn monitoring</span>
+    <section
+      class="hero-section"
+      aria-label="Product headline"
+    >
+      <ClientOnly>
+        <HeroPlasma />
+      </ClientOnly>
+
+      <div
+        class="grid-overlay"
+        aria-hidden="true"
+      />
+
+      <div class="hero-section__stage">
+        <div class="container hero-intro-inner">
+          <h1 class="hero-intro-heading">
+            <span class="hero-intro-line hero-intro-line--1">
+              <span class="accent-word">{{ heroStatement.line1Accent }}</span>
+              {{ heroStatement.line1Rest }}
+            </span>
+            <span class="hero-intro-line hero-intro-line--2">{{ heroStatement.line2 }}</span>
           </h1>
-
-          <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/62">
-            Identifying at risk accounts before they leave, using the data your team
-            already generates every day.
+          <p class="hero-intro-sub">
+            {{ heroStatement.sub }}
           </p>
-
-          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div class="button-row">
             <a
               :href="CALENDLY_URL"
               target="_blank"
@@ -152,103 +185,171 @@ const backers = [
           </div>
         </div>
 
-        <!-- Dashboard mockup · horizontal table -->
-        <div class="hero-dashboard surface-frame mt-14 overflow-hidden rounded-[16px] lg:mt-16">
-          <div class="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
-            <div class="flex items-center gap-3">
-              <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
-              <span class="text-sm font-semibold text-white">Custrom</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="hidden h-2 w-2 rounded-full bg-white/20 sm:block" />
-              <span class="dash-avatar">RD</span>
-            </div>
-          </div>
-
-          <div class="space-y-4 p-4 sm:p-5">
-            <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+        <div
+          id="mockup"
+          class="laptop-scene hero-laptop-scene"
+        >
+          <div class="laptop-device laptop-device--showcase">
+            <div class="laptop-screen liquid-glass">
               <div
-                v-for="stat in laptopDashboard.stats"
-                :key="stat.label"
-                class="surface-soft rounded-[12px] p-3.5"
-                :class="{ 'dash-stat-highlight': stat.highlight }"
-              >
-                <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/42">{{ stat.label }}</p>
-                <p class="mt-2 text-2xl font-semibold tracking-tight text-white">{{ stat.value }}</p>
-                <p class="mt-0.5 text-[11px] font-medium text-white/45">{{ stat.sub }}</p>
+                class="liquid-glass__specular"
+                aria-hidden="true"
+              />
+              <div
+                class="liquid-glass__tint"
+                aria-hidden="true"
+              />
+              <div class="dash-in-laptop">
+                <header class="dash-laptop-header">
+                  <div class="dash-laptop-brand">
+                    <img
+                      src="/custrom_white.png"
+                      alt=""
+                      class="dash-laptop-brand-icon"
+                      width="22"
+                      height="22"
+                    >
+                    <span class="mock-logo">Custrom</span>
+                  </div>
+                  <div class="dash-laptop-header-right">
+                    <span class="mock-icon-dot" />
+                    <span class="dash-avatar">RD</span>
+                  </div>
+                </header>
+
+                <div class="dash-stats dash-stats--laptop">
+                  <div
+                    v-for="stat in laptopDashboard.stats"
+                    :key="stat.label"
+                    class="dash-stat"
+                  >
+                    <span class="dash-stat-label">{{ stat.label }}</span>
+                    <span class="dash-stat-value">{{ stat.value }}</span>
+                    <span
+                      class="dash-stat-sub"
+                      :class="stat.tone ? `dash-stat-sub--${stat.tone}` : undefined"
+                    >
+                      <UIcon
+                        v-if="stat.tone === 'risk' || stat.tone === 'warn'"
+                        name="i-lucide-triangle-alert"
+                        class="dash-stat-icon"
+                      />
+                      <UIcon
+                        v-else-if="stat.tone === 'good'"
+                        name="i-lucide-trending-down"
+                        class="dash-stat-icon"
+                      />
+                      {{ stat.sub }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mock-card dash-laptop-table-wrap">
+                  <div class="dash-laptop-list-head">
+                    <p class="mock-card-label">
+                      Accounts needing attention today
+                    </p>
+                    <div class="dash-search">
+                      <UIcon
+                        name="i-lucide-search"
+                        class="dash-search-icon"
+                      />
+                      <span>Search accounts...</span>
+                    </div>
+                  </div>
+
+                  <div class="dash-laptop-table-scroll">
+                    <table class="dash-laptop-table">
+                      <thead>
+                        <tr>
+                          <th>Account</th>
+                          <th>Stage</th>
+                          <th>Health</th>
+                          <th>Type</th>
+                          <th>Top reason</th>
+                          <th>Owner</th>
+                          <th>Last activity</th>
+                          <th>Suggested action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          v-for="account in laptopDashboard.accounts"
+                          :key="account.name"
+                        >
+                          <td>
+                            <div class="dash-account">
+                              <img
+                                :src="account.logo"
+                                :alt="account.name"
+                                class="dash-account-logo"
+                                width="28"
+                                height="28"
+                              >
+                              <span>{{ account.name }}</span>
+                            </div>
+                          </td>
+                          <td><span class="dash-stage-pill">{{ account.stage }}</span></td>
+                          <td>
+                            <div class="dash-health">
+                              <span
+                                class="dash-health-num"
+                                :class="`dash-health-num--${account.tone}`"
+                              >{{ account.health }}</span>
+                              <div class="dash-health-bar">
+                                <div
+                                  class="dash-health-fill"
+                                  :class="`dash-health-fill--${account.tone}`"
+                                  :style="{ width: account.health + '%' }"
+                                />
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="dash-chip"
+                              :class="`dash-chip--${account.tone}`"
+                            >{{ account.type }}</span>
+                          </td>
+                          <td class="dash-laptop-reason">
+                            {{ account.reason }}
+                          </td>
+                          <td>
+                            <div class="dash-owner">
+                              <img
+                                :src="account.ownerAvatar"
+                                :alt="account.owner"
+                                class="dash-owner-avatar"
+                                width="24"
+                                height="24"
+                              >
+                              <span>{{ account.owner }}</span>
+                            </div>
+                          </td>
+                          <td class="dash-laptop-muted">
+                            {{ account.activity }}
+                          </td>
+                          <td>
+                            <span class="dash-action">
+                              <UIcon
+                                name="i-lucide-zap"
+                                class="dash-action-icon"
+                              />
+                              {{ account.action }}
+                              <UIcon
+                                name="i-lucide-chevron-right"
+                                class="dash-action-chevron"
+                              />
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="surface-product rounded-[14px] p-3 sm:p-4">
-              <div class="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55">Accounts needing attention today</p>
-                  <p class="mt-1 text-[11px] text-white/45">4 accounts · ranked by risk and urgency</p>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="chip">All</span>
-                  <span class="chip">Risk</span>
-                  <span class="chip">Expansion</span>
-                </div>
-              </div>
-
-              <div class="dash-table-scroll">
-                <table class="dash-table">
-                  <thead>
-                    <tr>
-                      <th>Account</th>
-                      <th>Stage</th>
-                      <th>Health</th>
-                      <th>Type</th>
-                      <th>Top reason</th>
-                      <th>Owner</th>
-                      <th>Last activity</th>
-                      <th>Suggested action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="account in laptopDashboard.accounts" :key="account.name">
-                      <td>
-                        <div class="dash-account">
-                          <span class="dash-account-icon">{{ account.initials }}</span>
-                          <span>{{ account.name }}</span>
-                        </div>
-                      </td>
-                      <td><span class="dash-stage-pill">{{ account.stage }}</span></td>
-                      <td>
-                        <div class="dash-health">
-                          <div class="dash-health-bar">
-                            <div
-                              class="dash-health-fill"
-                              :class="`dash-health-fill--${account.tone}`"
-                              :style="{ width: account.health + '%' }"
-                            />
-                          </div>
-                          <span class="dash-health-num" :class="toneText[account.tone]">{{ account.health }}</span>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="dash-chip" :class="`dash-chip--${account.tone}`">{{ account.type }}</span>
-                      </td>
-                      <td class="dash-reason">{{ account.reason }}</td>
-                      <td>
-                        <div class="dash-account">
-                          <span class="dash-account-icon">{{ account.ownerInit }}</span>
-                          <span>{{ account.owner }}</span>
-                        </div>
-                      </td>
-                      <td class="dash-muted">{{ account.activity }}</td>
-                      <td>
-                        <span class="dash-action">
-                          <UIcon name="i-lucide-sparkles" class="size-3 shrink-0" />
-                          {{ account.action }}
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <div class="laptop-base" />
           </div>
         </div>
       </div>
