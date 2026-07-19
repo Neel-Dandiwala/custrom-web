@@ -461,17 +461,32 @@ onMounted(async () => {
           </p>
         </div>
 
-        <div class="mt-16 grid gap-6 md:grid-cols-3">
-          <div
-            v-for="step in processSteps"
-            :key="step.title"
-            class="surface-product flex flex-col rounded-[16px] p-7 lg:p-8"
-          >
-            <div class="icon-tile h-10 w-10">
-              <UIcon :name="step.icon" class="size-5" />
+        <div class="mt-14 grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:h-[min(640px,72vh)] lg:gap-10 xl:gap-12">
+          <div class="flex h-full min-h-0 flex-col gap-5">
+            <div
+              v-for="(step, i) in processSteps"
+              :key="step.title"
+              class="surface-product flex min-h-0 flex-1 flex-col rounded-[16px] p-5 sm:p-6"
+            >
+              <div class="flex items-center gap-3">
+                <div class="icon-tile h-9 w-9 shrink-0">
+                  <UIcon :name="step.icon" class="size-4" />
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
+                  Step {{ i + 1 }}
+                </span>
+              </div>
+              <h3 class="mt-3 text-lg font-semibold tracking-[-0.03em] text-white lg:text-xl">
+                {{ step.title }}
+              </h3>
+              <p class="mt-1.5 text-[15px] leading-relaxed text-white/60">
+                {{ step.body }}
+              </p>
             </div>
-            <h3 class="mt-5 text-2xl font-semibold tracking-[-0.03em] text-white">{{ step.title }}</h3>
-            <p class="mt-3 text-base leading-relaxed text-white/60">{{ step.body }}</p>
+          </div>
+
+          <div class="process-account-frame h-full min-h-[420px] max-h-[min(640px,72vh)] overflow-y-auto overflow-x-hidden rounded-[16px] border border-white/10 bg-black/20 p-3 sm:p-4 lg:min-h-0 lg:max-h-none lg:h-full lg:p-5">
+            <AccountDetailMockup compact />
           </div>
         </div>
       </div>

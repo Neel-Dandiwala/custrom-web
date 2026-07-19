@@ -214,6 +214,20 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.10) 50%, transparent 100%);
 }
 
+.process-account-frame {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.process-account-frame::-webkit-scrollbar {
+  width: 6px;
+}
+
+.process-account-frame::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
 /* ---- Status dots (muted, data only) ---- */
 .dot-good { background: var(--c-good); }
 .dot-warn { background: var(--c-warn); }
