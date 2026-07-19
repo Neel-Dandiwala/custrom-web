@@ -1,19 +1,20 @@
 <script setup>
 const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
 
-const heroStatement = {
-  line1Accent: 'Effortless',
-  line1Rest: 'customer satisfaction',
-  line2: 'and churn monitoring',
-  sub: 'Identifying at-risk accounts before they leave, using the data your team already generates every day.'
+const heroContent = {
+  headlineLine1: 'AI that catches churn',
+  headlineAccent: 'before it happens.',
+  sub: 'One engine to continuously process sentiment across your tools into clear, real time health scores.',
+  primaryCta: 'Book a 15 min call',
+  secondaryCta: 'See how it works'
 }
 
 const laptopDashboard = {
   stats: [
-    { label: 'Need attention today', value: '4', sub: 'across 4 owners' },
-    { label: 'High risk accounts', value: '2', sub: '+1 since yesterday', tone: 'risk' },
-    { label: 'Open expansion signals', value: '1', sub: '$54k pipeline', tone: 'good' },
-    { label: 'SLO breaches this week', value: '3', sub: '3 accounts affected', tone: 'warn' }
+    { label: 'Need attention', value: '4', sub: 'across 3 owners' },
+    { label: 'High risk', value: '3', sub: '+1 since yesterday', tone: 'risk' },
+    { label: 'Expansion', value: '2', sub: '$58k pipeline', tone: 'good' },
+    { label: 'SLO breaches', value: '12', sub: '7 accounts', tone: 'warn' }
   ],
   accounts: [
     {
@@ -25,7 +26,7 @@ const laptopDashboard = {
       type: 'High Risk',
       tone: 'risk',
       reason: 'SSO blocker mentioned 4× in Slack',
-      owner: 'Riya D',
+      owner: 'Riya',
       ownerInit: 'RD',
       ownerAvatar: '/mockups/avatar-riya.svg',
       activity: '2h ago',
@@ -40,11 +41,11 @@ const laptopDashboard = {
       type: 'Churn Risk',
       tone: 'churn',
       reason: 'Usage dropped · renewal in 31 days',
-      owner: 'Alex K',
+      owner: 'Alex',
       ownerInit: 'AK',
       ownerAvatar: '/mockups/avatar-alex.svg',
       activity: '1d ago',
-      action: 'Book check-in'
+      action: 'Book check in'
     },
     {
       initials: 'BL',
@@ -55,7 +56,7 @@ const laptopDashboard = {
       type: 'Expansion',
       tone: 'good',
       reason: 'Asked about adding another team',
-      owner: 'Neel D',
+      owner: 'Neel',
       ownerInit: 'ND',
       ownerAvatar: '/mockups/avatar-neel.svg',
       activity: '4h ago',
@@ -70,7 +71,7 @@ const laptopDashboard = {
       type: 'SLO Breach',
       tone: 'warn',
       reason: 'P1 ticket unresolved for 2 days',
-      owner: 'Sam P',
+      owner: 'Sam',
       ownerInit: 'SP',
       ownerAvatar: '/mockups/avatar-sam.svg',
       activity: '6h ago',
@@ -79,47 +80,55 @@ const laptopDashboard = {
   ]
 }
 
+const processHeading = {
+  lead: 'How it works',
+  subheading: 'Give your CS team a daily ranked list of exactly who needs attention today'
+}
+
 const processSteps = [
   {
     icon: 'i-lucide-plug',
     title: 'Connect your data',
-    body: 'Plug in your existing CRM, product, and support tools in minutes'
+    body: 'Plug in your existing CRM, product, and support tools in minutes.'
   },
   {
     icon: 'i-lucide-activity',
     title: 'Monitor account health',
-    body: 'Track usage, engagement, and support patterns across your entire customer base'
+    body: 'Track usage, engagement, and support patterns across your entire customer base.'
   },
   {
     icon: 'i-lucide-bell-ring',
     title: 'Flag churn early',
-    body: 'Surface disengaging accounts weeks before they cancel, while you can still do something about it'
+    body: 'Surface disengaging accounts weeks before they cancel, while you can still do something about it.'
   }
 ]
 
 const integrationsSection = {
-  headlineAccent: 'Connected',
-  headlineRest: 'out of the box',
-  sub: 'CRM, messaging, ticketing, tasks, analytics, accounting, and payments — unified without adding another tool.'
+  headingLine1: 'One monitoring engine for your',
+  headingAccent: 'entire stack.',
+  sub: 'Plug in your existing tools and start spotting churn signals in minutes.'
 }
+
+const valueStatement = 'Your CRM already knows who\'s leaving. Custrom makes it impossible to miss.'
 
 const churnSignalsSection = {
   headingAccent: 'The signals',
   headingRest: 'teams miss',
-  subheading: 'The same churn and satisfaction gaps show up across CS, Sales, and GTM — buried in CRM fields, product activity, and support history long before renewal.',
-  hint: 'Drag',
+  subheading: 'The same churn and satisfaction gaps show up across CS, Sales, and GTM, buried in CRM fields, product activity, and support history long before renewal.',
+  hint: 'Drag the pile to explore the overload',
+  sideNote: 'What looks like noise in your tools is a ranked list of who needs a save conversation today.',
   windowLabel: 'Missed signals'
 }
 
 const closingCta = {
   lead: 'Let\'s keep the revenue you\'ve',
   accent: 'already earned.',
-  body: 'We\'re early stage and looking for teams to build this with. Bring your funnel — we\'ll show you what your data already knows.'
+  body: 'We\'re early stage and looking for teams to build this with. Bring your funnel, we\'ll show you what your data already knows.',
+  cta: 'Book a 15 minute call'
 }
 
 const backedSection = {
-  title: 'Backed by',
-  sub: 'Incubators and operators helping us build for customer teams.'
+  title: 'Backed by'
 }
 
 const integrationLogos = [
@@ -142,10 +151,10 @@ const integrationsRow1 = [...integrationLogos.slice(0, mid), ...integrationLogos
 const integrationsRow2 = [...integrationLogos.slice(mid), ...integrationLogos.slice(mid)]
 
 const backers = [
-  { name: 'DMZ', note: 'Incubator' },
-  { name: 'Antler', note: 'Mentors' },
-  { name: 'Techstars', note: 'Mentors' },
-  { name: 'YC', note: 'Mentors' }
+  { name: 'Antler', note: 'Backed by experts' },
+  { name: 'Techstars', note: 'Backed by experts' },
+  { name: 'Y Combinator', note: 'Backed by experts' },
+  { name: 'DMZ', note: 'Accelerator' }
 ]
 
 onMounted(async () => {
@@ -183,13 +192,12 @@ onMounted(async () => {
         <div class="container hero-intro-inner">
           <h1 class="hero-intro-heading">
             <span class="hero-intro-line hero-intro-line--1">
-              <span class="accent-word">{{ heroStatement.line1Accent }}</span>
-              {{ heroStatement.line1Rest }}
+              {{ heroContent.headlineLine1 }}
+              <span class="accent-word">{{ heroContent.headlineAccent }}</span>
             </span>
-            <span class="hero-intro-line hero-intro-line--2">{{ heroStatement.line2 }}</span>
           </h1>
           <p class="hero-intro-sub">
-            {{ heroStatement.sub }}
+            {{ heroContent.sub }}
           </p>
           <div class="button-row">
             <a
@@ -198,14 +206,14 @@ onMounted(async () => {
               rel="noopener noreferrer"
               class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
-              Book a 15-min call
+              {{ heroContent.primaryCta }}
               <UIcon name="i-lucide-arrow-right" class="size-4" />
             </a>
             <a
               href="#process"
               class="button-secondary inline-flex items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
-              See how it works
+              {{ heroContent.secondaryCta }}
             </a>
           </div>
         </div>
@@ -271,9 +279,14 @@ onMounted(async () => {
 
                 <div class="mock-card dash-laptop-table-wrap">
                   <div class="dash-laptop-list-head">
-                    <p class="mock-card-label">
-                      Accounts needing attention today
-                    </p>
+                    <div>
+                      <p class="mock-card-label">
+                        Accounts needing attention today
+                      </p>
+                      <p class="dash-table-sub">
+                        4 accounts · ranked by risk and urgency
+                      </p>
+                    </div>
                     <div class="dash-search">
                       <UIcon
                         name="i-lucide-search"
@@ -391,9 +404,6 @@ onMounted(async () => {
           <h2 class="text-lg font-semibold tracking-[-0.02em] text-white sm:text-xl">
             {{ backedSection.title }}
           </h2>
-          <p class="sv-body-copy mt-2">
-            {{ backedSection.sub }}
-          </p>
         </div>
         <div class="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           <div
@@ -413,8 +423,8 @@ onMounted(async () => {
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">
-            <span class="headline-interaction">{{ integrationsSection.headlineAccent }}</span>
-            {{ integrationsSection.headlineRest }}
+            {{ integrationsSection.headingLine1 }}
+            <span class="headline-interaction">{{ integrationsSection.headingAccent }}</span>
           </h2>
           <p class="sv-body-copy mt-4">
             {{ integrationsSection.sub }}
@@ -455,13 +465,25 @@ onMounted(async () => {
       </div>
     </section>
 
+    <!-- ============ VALUE STATEMENT ============ -->
+    <section
+      class="border-b border-white/10"
+      aria-label="Product value statement"
+    >
+      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <p class="mx-auto max-w-3xl text-center text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-white">
+          {{ valueStatement }}
+        </p>
+      </div>
+    </section>
+
     <!-- ============ PROCESS ============ -->
     <section id="process" class="border-b border-white/10">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
-          <h2 class="sv-section-heading">How it works</h2>
+          <h2 class="sv-section-heading">{{ processHeading.lead }}</h2>
           <p class="sv-body-copy mt-4">
-            Give your CS team a daily ranked list of exactly who needs attention today
+            {{ processHeading.subheading }}
           </p>
         </div>
 
@@ -509,11 +531,15 @@ onMounted(async () => {
             <p class="sv-body-copy mt-4">
               {{ churnSignalsSection.subheading }}
             </p>
+            <p class="mt-5 text-[15px] leading-relaxed text-white/55">
+              {{ churnSignalsSection.sideNote }}
+            </p>
             <p class="mt-5 flex items-center gap-2 text-sm text-white/45">
-              <kbd class="rounded border border-white/15 bg-white/5 px-1.5 py-0.5 font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">
-                {{ churnSignalsSection.hint }}
-              </kbd>
-              to play the overload
+              <UIcon
+                name="i-lucide-mouse-pointer-2"
+                class="size-4 shrink-0"
+              />
+              {{ churnSignalsSection.hint }}
             </p>
           </div>
 
@@ -527,7 +553,7 @@ onMounted(async () => {
               </div>
               <span class="churn-window__label">{{ churnSignalsSection.windowLabel }}</span>
               <span class="churn-window__hint">
-                <kbd>{{ churnSignalsSection.hint }}</kbd>
+                <kbd>Drag</kbd>
               </span>
             </div>
             <ClientOnly>
@@ -562,7 +588,7 @@ onMounted(async () => {
                 rel="noopener noreferrer"
                 class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-7 py-4 text-base font-semibold"
               >
-                Book a 15-min call
+                {{ closingCta.cta }}
                 <UIcon name="i-lucide-arrow-right" class="size-4" />
               </a>
             </div>

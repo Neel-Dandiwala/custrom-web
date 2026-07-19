@@ -803,7 +803,7 @@ body {
 
 .dash-laptop-list-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
@@ -816,6 +816,12 @@ body {
   color: #fff;
   letter-spacing: -0.01em;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dash-laptop-list-head .dash-table-sub {
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .dash-in-laptop .dash-search {

@@ -20,8 +20,8 @@ useHead({
   }
 })
 
-const title = 'Custrom — Don\'t lose the leads you already have'
-const description = 'Custrom helps B2B teams spot which prospects are worth pursuing and which customers are about to leave — before it\'s too late. Built on the CRM and activity data you already have.'
+const title = 'Custrom: Don\'t lose the leads you already have'
+const description = 'Custrom helps B2B teams spot which prospects are worth pursuing and which customers are about to leave, before it\'s too late. Built on the CRM and activity data you already have.'
 
 useSeoMeta({
   title,
@@ -75,7 +75,7 @@ function isRouteLink(to) {
             rel="noopener noreferrer"
             class="button-primary hidden items-center justify-center rounded-[10px] px-4 py-2.5 text-sm font-semibold sm:inline-flex"
           >
-            Book a 15-min call
+            Book a 15 min call
           </a>
         </div>
       </header>
