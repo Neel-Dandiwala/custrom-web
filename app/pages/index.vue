@@ -97,6 +97,31 @@ const processSteps = [
   }
 ]
 
+const integrationsSection = {
+  headlineAccent: 'Connected',
+  headlineRest: 'out of the box',
+  sub: 'CRM, messaging, ticketing, tasks, analytics, accounting, and payments — unified without adding another tool.'
+}
+
+const churnSignalsSection = {
+  headingAccent: 'The signals',
+  headingRest: 'teams miss',
+  subheading: 'The same churn and satisfaction gaps show up across CS, Sales, and GTM — buried in CRM fields, product activity, and support history long before renewal.',
+  hint: 'Drag',
+  windowLabel: 'Missed signals'
+}
+
+const closingCta = {
+  lead: 'Let\'s keep the revenue you\'ve',
+  accent: 'already earned.',
+  body: 'We\'re early stage and looking for teams to build this with. Bring your funnel — we\'ll show you what your data already knows.'
+}
+
+const backedSection = {
+  title: 'Backed by',
+  sub: 'Incubators and operators helping us build for customer teams.'
+}
+
 const integrationLogos = [
   'salesforce.svg', 'hubspot.svg', 'slack.svg', 'zendesk.svg', 'intercom.svg',
   'pipedrive.png', 'stripe.png', 'notion.png', 'google.png', 'microsoft.svg',
@@ -117,10 +142,10 @@ const integrationsRow1 = [...integrationLogos.slice(0, mid), ...integrationLogos
 const integrationsRow2 = [...integrationLogos.slice(mid), ...integrationLogos.slice(mid)]
 
 const backers = [
-  { name: 'DMZ', note: 'Accelerator' },
-  { name: 'Antler', note: 'Backed by experts' },
-  { name: 'Techstars', note: 'Backed by experts' },
-  { name: 'Y Combinator', note: 'Backed by experts' }
+  { name: 'DMZ', note: 'Incubator' },
+  { name: 'Antler', note: 'Mentors' },
+  { name: 'Techstars', note: 'Mentors' },
+  { name: 'YC', note: 'Mentors' }
 ]
 
 onMounted(async () => {
@@ -173,7 +198,7 @@ onMounted(async () => {
               rel="noopener noreferrer"
               class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
-              Book a 15 min call
+              Book a 15-min call
               <UIcon name="i-lucide-arrow-right" class="size-4" />
             </a>
             <a
@@ -358,9 +383,14 @@ onMounted(async () => {
     <!-- ============ BACKED BY ============ -->
     <section id="backed-by" class="border-b border-white/10">
       <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <p class="text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/45">
-          Backed by DMZ · backed by experts from Antler, Techstars &amp; YC
-        </p>
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-lg font-semibold tracking-[-0.02em] text-white sm:text-xl">
+            {{ backedSection.title }}
+          </h2>
+          <p class="sv-body-copy mt-2">
+            {{ backedSection.sub }}
+          </p>
+        </div>
         <div class="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           <div
             v-for="b in backers"
@@ -379,11 +409,11 @@ onMounted(async () => {
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">
-            <span class="headline-interaction">Connected</span>
-            out of the box
+            <span class="headline-interaction">{{ integrationsSection.headlineAccent }}</span>
+            {{ integrationsSection.headlineRest }}
           </h2>
           <p class="sv-body-copy mt-4">
-            Salesforce, HubSpot, Slack, Zendesk, and Intercom, unified without adding another tool.
+            {{ integrationsSection.sub }}
           </p>
           <NuxtLink
             to="/integrations"
@@ -448,29 +478,46 @@ onMounted(async () => {
     </section>
 
     <!-- ============ CHURN SIGNALS ============ -->
-    <section id="personas" class="border-b border-white/10">
+    <section id="churn-signals" class="border-b border-white/10">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
           <div class="max-w-xl">
+            <p class="churn-overload-eyebrow">Churn signals</p>
             <h2 class="sv-section-heading">
-              <span class="headline-interaction">The signals</span>
-              teams miss
+              <span class="headline-interaction">{{ churnSignalsSection.headingAccent }}</span>
+              {{ churnSignalsSection.headingRest }}
             </h2>
             <p class="sv-body-copy mt-4">
-              The same churn and satisfaction gaps show up across CS, Sales, and GTM, buried in CRM fields, product activity, and support history long before renewal.
+              {{ churnSignalsSection.subheading }}
             </p>
             <p class="mt-5 flex items-center gap-2 text-sm text-white/45">
-              <UIcon name="i-lucide-mouse-pointer-2" class="size-4 shrink-0" />
-              Play the overload with your cursor
+              <kbd class="rounded border border-white/15 bg-white/5 px-1.5 py-0.5 font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">
+                {{ churnSignalsSection.hint }}
+              </kbd>
+              to play the overload
             </p>
           </div>
 
-          <ClientOnly>
-            <ChurnOverloadVisual />
-            <template #fallback>
-              <div class="churn-overload-box churn-overload-box--placeholder" aria-hidden="true" />
-            </template>
-          </ClientOnly>
+          <div class="churn-window">
+            <div
+              class="churn-window__chrome"
+              aria-hidden="true"
+            >
+              <div class="churn-window__dots">
+                <span /><span /><span />
+              </div>
+              <span class="churn-window__label">{{ churnSignalsSection.windowLabel }}</span>
+              <span class="churn-window__hint">
+                <kbd>{{ churnSignalsSection.hint }}</kbd>
+              </span>
+            </div>
+            <ClientOnly>
+              <ChurnOverloadVisual />
+              <template #fallback>
+                <div class="churn-overload-box churn-overload-box--placeholder" aria-hidden="true" />
+              </template>
+            </ClientOnly>
+          </div>
         </div>
       </div>
     </section>
@@ -483,12 +530,11 @@ onMounted(async () => {
           <div class="grid-overlay" />
           <div class="relative">
             <h2 class="mx-auto max-w-2xl text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">
-              Let's keep the revenue you've
-              <span class="headline-interaction">already earned.</span>
+              {{ closingCta.lead }}
+              <span class="headline-interaction">{{ closingCta.accent }}</span>
             </h2>
             <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/60">
-              We're early stage and looking for teams to build this with. Bring your funnel,
-              we'll show you what your data already knows.
+              {{ closingCta.body }}
             </p>
             <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
@@ -497,7 +543,7 @@ onMounted(async () => {
                 rel="noopener noreferrer"
                 class="button-primary inline-flex items-center justify-center gap-2 rounded-[10px] px-7 py-4 text-base font-semibold"
               >
-                Book a 15 minute call
+                Book a 15-min call
                 <UIcon name="i-lucide-arrow-right" class="size-4" />
               </a>
             </div>
