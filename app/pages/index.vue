@@ -212,7 +212,7 @@ onMounted(async () => {
 
         <div
           id="mockup"
-          class="laptop-scene hero-laptop-scene"
+          class="laptop-scene hero-laptop-scene hero-mockup-stage"
         >
           <div class="laptop-device laptop-device--showcase">
             <div class="laptop-screen liquid-glass">
@@ -375,6 +375,10 @@ onMounted(async () => {
               </div>
             </div>
             <div class="laptop-base" />
+          </div>
+
+          <div class="hero-phone-mockup">
+            <AccountPhoneMockup />
           </div>
         </div>
       </div>

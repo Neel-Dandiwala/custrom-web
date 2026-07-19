@@ -393,12 +393,38 @@ body {
 .hero-section .hero-laptop-scene {
   position: relative;
   z-index: 2;
-  width: min(1180px, 86vw);
+  /* Wide enough for laptop + phone overhang, centered as a pair */
+  width: min(1120px, 90vw);
   max-width: none;
-  margin: clamp(24px, 4vh, 48px) auto clamp(48px, 8vh, 96px);
-  padding: 0 clamp(20px, 3vw, 36px);
+  margin: clamp(24px, 4vh, 48px) auto clamp(64px, 10vh, 120px);
+  padding: 0 clamp(16px, 2vw, 28px);
+  /* Reserve right rail so the phone sits inside the centered frame */
+  padding-right: clamp(152px, 18vw, 232px);
   transform: none;
   overflow: visible;
+}
+
+.hero-mockup-stage {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.hero-phone-mockup {
+  position: absolute;
+  z-index: 5;
+  right: clamp(4px, 1vw, 12px);
+  /* Align to laptop bottom; nudge down for transparent PNG margin */
+  bottom: 0;
+  width: min(320px, 34vw);
+  pointer-events: none;
+  transform: translateY(4.75%);
+}
+
+@media (max-width: 900px) {
+  .hero-phone-mockup {
+    display: none;
+  }
 }
 
 .hero-section .laptop-device--showcase {
@@ -814,27 +840,27 @@ body {
 }
 
 .dash-laptop-table-wrap {
-  padding: 18px 18px 14px;
+  padding: 18px 18px 12px;
 }
 
 .dash-laptop-table-scroll {
   overflow-x: auto;
   margin: 0 -4px;
-  padding: 0 4px;
+  padding: 0 4px 2px;
+  /* Hide scrollbar — it reads as a hairline under the last row */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .dash-laptop-table-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-
-.dash-laptop-table-scroll::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.28);
-  border-radius: 2px;
+  display: none;
+  height: 0;
 }
 
 .dash-laptop-table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
   min-width: 820px;
   text-align: left;
 }
@@ -861,11 +887,18 @@ body {
   font-size: 13px;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border: none;
+  border-bottom: none;
+}
+
+/* Dividers between rows only — last row has no trailing line */
+.dash-laptop-table tbody tr + tr td {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .dash-laptop-table tbody tr:last-child td {
-  border-bottom: none;
+  border-bottom: none !important;
+  box-shadow: none;
 }
 
 .dash-in-laptop .dash-account {
