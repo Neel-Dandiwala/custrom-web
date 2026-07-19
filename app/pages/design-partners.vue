@@ -1,6 +1,4 @@
 <script setup>
-const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
-
 const title = 'Design Partner Program | Custrom'
 const description = 'An exclusive Design Partner Program with locked founding pricing, direct founder support, and zero technical setup.'
 
@@ -59,63 +57,39 @@ const askItems = [
   }
 ]
 
-const stackOptions = ['Salesforce', 'Stripe', 'PostHog', 'Zendesk', 'Slack']
+onMounted(() => {
+  const widgetScriptSrc = 'https://tally.so/widgets/embed.js'
 
-const form = reactive({
-  email: '',
-  company: '',
-  stack: [],
-  challenge: ''
+  const load = () => {
+    if (typeof window.Tally !== 'undefined') {
+      window.Tally.loadEmbeds()
+      return
+    }
+
+    document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframeEl) => {
+      iframeEl.src = iframeEl.dataset.tallySrc
+    })
+  }
+
+  if (typeof window.Tally !== 'undefined') {
+    load()
+    return
+  }
+
+  if (document.querySelector(`script[src="${widgetScriptSrc}"]`) === null) {
+    const script = document.createElement('script')
+    script.src = widgetScriptSrc
+    script.onload = load
+    script.onerror = load
+    document.body.appendChild(script)
+    return
+  }
+
+  // Script tag exists but may still be loading
+  const existing = document.querySelector(`script[src="${widgetScriptSrc}"]`)
+  existing?.addEventListener('load', load)
+  load()
 })
-
-const formErrors = reactive({
-  email: '',
-  company: '',
-  challenge: ''
-})
-
-function validateEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
-}
-
-function handleSubmit() {
-  formErrors.email = ''
-  formErrors.company = ''
-  formErrors.challenge = ''
-
-  let valid = true
-
-  if (!form.email.trim()) {
-    formErrors.email = 'Work email is required.'
-    valid = false
-  } else if (!validateEmail(form.email)) {
-    formErrors.email = 'Enter a valid work email.'
-    valid = false
-  }
-
-  if (!form.company.trim()) {
-    formErrors.company = 'Company name and customer base size are required.'
-    valid = false
-  }
-
-  if (!form.challenge.trim()) {
-    formErrors.challenge = 'Tell us your primary retention challenge.'
-    valid = false
-  }
-
-  if (!valid) return
-
-  window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
-}
-
-function toggleStack(option) {
-  const idx = form.stack.indexOf(option)
-  if (idx === -1) {
-    form.stack.push(option)
-  } else {
-    form.stack.splice(idx, 1)
-  }
-}
 </script>
 
 <template>
@@ -201,86 +175,21 @@ function toggleStack(option) {
           </p>
         </div>
 
-        <form class="surface-frame mx-auto mt-12 max-w-2xl rounded-[16px] p-6 sm:p-8" novalidate @submit.prevent="handleSubmit">
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div class="sm:col-span-1">
-              <label for="dp-email" class="mb-2 block text-sm font-medium text-white/70">Work email</label>
-              <input
-                id="dp-email"
-                v-model="form.email"
-                type="email"
-                name="email"
-                autocomplete="email"
-                placeholder="you@company.com"
-                class="dp-input"
-                :aria-invalid="!!formErrors.email"
-              >
-              <p v-if="formErrors.email" class="mt-1.5 text-sm text-[#FB7185]" role="alert">{{ formErrors.email }}</p>
-            </div>
-
-            <div class="sm:col-span-1">
-              <label for="dp-company" class="mb-2 block text-sm font-medium text-white/70">Company name &amp; customer base size</label>
-              <input
-                id="dp-company"
-                v-model="form.company"
-                type="text"
-                name="company"
-                autocomplete="organization"
-                placeholder="Acme Corp · ~200 customers"
-                class="dp-input"
-                :aria-invalid="!!formErrors.company"
-              >
-              <p v-if="formErrors.company" class="mt-1.5 text-sm text-[#FB7185]" role="alert">{{ formErrors.company }}</p>
-            </div>
-          </div>
-
-          <fieldset class="mt-6">
-            <legend class="mb-3 text-sm font-medium text-white/70">Tech stack used</legend>
-            <div class="flex flex-wrap gap-2">
-              <label
-                v-for="option in stackOptions"
-                :key="option"
-                class="cursor-pointer rounded-full border px-3.5 py-1.5 text-sm font-medium transition"
-                :class="form.stack.includes(option)
-                  ? 'border-white/25 bg-white/10 text-white'
-                  : 'border-white/10 text-white/55 hover:text-white'"
-              >
-                <input
-                  type="checkbox"
-                  class="sr-only"
-                  :checked="form.stack.includes(option)"
-                  @change="toggleStack(option)"
-                >
-                {{ option }}
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="mt-6">
-            <label for="dp-challenge" class="mb-2 block text-sm font-medium text-white/70">Primary retention challenge</label>
-            <textarea
-              id="dp-challenge"
-              v-model="form.challenge"
-              name="challenge"
-              rows="3"
-              placeholder="e.g. We find out customers are unhappy on the day they cancel..."
-              class="dp-input min-h-[96px] resize-y"
-              :aria-invalid="!!formErrors.challenge"
+        <div class="mx-auto mt-10 max-w-2xl">
+          <ClientOnly>
+            <iframe
+              data-tally-src="https://tally.so/embed/Y5KGDW?alignLeft=1&hideTitle=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="689"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Apply for the Design Partner Cohort"
+              class="dp-tally-embed"
             />
-            <p v-if="formErrors.challenge" class="mt-1.5 text-sm text-[#FB7185]" role="alert">{{ formErrors.challenge }}</p>
-          </div>
-
-          <button
-            type="submit"
-            class="button-primary mt-7 inline-flex w-full items-center justify-center gap-2 rounded-[10px] px-6 py-3.5 text-sm font-semibold sm:w-auto"
-          >
-            Apply for Design Partner Cohort
-            <UIcon name="i-lucide-arrow-right" class="size-4" />
-          </button>
-          <p class="mt-3 text-sm text-white/45">
-            After submitting, you'll be redirected to book a 30 minute call with the founders.
-          </p>
-        </form>
+          </ClientOnly>
+        </div>
       </div>
     </section>
   </div>

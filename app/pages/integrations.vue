@@ -2,7 +2,7 @@
 import { getVisibleIntegrationLogos } from '~/data/integrationLogos'
 import { formatIntegrationLabel } from '~/utils/formatIntegrationLabel'
 
-const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
+const CALENDLY_URL = 'https://calendly.com/custromsupport'
 
 const title = 'Integrations | Custrom'
 const description = 'Connect Custrom to the CRM, support, product, and messaging tools your team already uses. 400+ integrations into one continuous retention pulse.'

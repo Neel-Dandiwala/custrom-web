@@ -1,5 +1,5 @@
 <script setup>
-const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
+const CALENDLY_URL = 'https://calendly.com/custromsupport'
 
 const heroContent = {
   headlineLine1: 'AI that catches churn',

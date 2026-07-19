@@ -1,5 +1,5 @@
 <script setup>
-const CALENDLY_URL = 'https://calendly.com/neeldandiwala/30min'
+const CALENDLY_URL = 'https://calendly.com/custromsupport'
 
 useHead({
   meta: [
@@ -114,7 +114,7 @@ function isRouteLink(to) {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="font-medium text-white/60 transition-colors hover:text-white"
-              >calendly.com/neeldandiwala/30min</a>
+              >calendly.com/custromsupport</a>
             </div>
           </div>
         </div>
