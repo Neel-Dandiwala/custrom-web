@@ -185,10 +185,9 @@ function hideBrokenLogo(event) {
 
 <template>
   <div>
-    <section class="border-b border-white/10">
+    <section>
       <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">Integrations</p>
-        <h1 class="sv-section-heading mt-3 max-w-3xl">
+        <h1 class="sv-section-heading max-w-3xl">
           Connected
           <span class="headline-interaction">out of the box</span>
         </h1>
@@ -235,7 +234,7 @@ function hideBrokenLogo(event) {
       </div>
     </section>
 
-    <section class="border-b border-white/10">
+    <section>
       <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <p v-if="resultCount === 0" class="text-sm text-white/55">
           No integrations match your filters. Try another keyword or category.

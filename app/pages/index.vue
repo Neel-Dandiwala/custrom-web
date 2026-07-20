@@ -109,7 +109,10 @@ const integrationsSection = {
   sub: 'Plug in your existing tools and start spotting churn signals in minutes.'
 }
 
-const valueStatement = 'Your CRM already knows who\'s leaving. Custrom makes it impossible to miss.'
+const valueStatement = {
+  headline: 'The signals are already there. Custrom makes them impossible to miss.',
+  sub: 'Churn and expansion cues sit buried in your CRM, product, and support tools. Custrom surfaces the ones that matter into a clear daily list of who needs attention.'
+}
 
 const churnSignalsSection = {
   headingAccent: 'The signals',
@@ -398,7 +401,7 @@ onMounted(async () => {
     </section>
 
     <!-- ============ BACKED BY ============ -->
-    <section id="backed-by" class="border-b border-white/10">
+    <section id="backed-by">
       <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-lg font-semibold tracking-[-0.02em] text-white sm:text-xl">
@@ -419,7 +422,7 @@ onMounted(async () => {
     </section>
 
     <!-- ============ INTEGRATIONS ============ -->
-    <section id="integrations" class="border-b border-white/10">
+    <section id="integrations">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">
@@ -467,18 +470,31 @@ onMounted(async () => {
 
     <!-- ============ VALUE STATEMENT ============ -->
     <section
-      class="border-b border-white/10"
+      class="value-statement-section"
       aria-label="Product value statement"
     >
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <p class="mx-auto max-w-3xl text-center text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-white">
-          {{ valueStatement }}
-        </p>
+      <div class="value-statement-stage mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6 sm:pt-32 lg:px-8 lg:pt-40 lg:pb-28">
+        <div class="value-statement-visual" aria-hidden="true">
+          <ClientOnly>
+            <FboLandscapeVisual />
+            <template #fallback>
+              <div class="fbo-landscape-fallback" />
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="value-statement-copy">
+          <h2 class="max-w-xl text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-white">
+            {{ valueStatement.headline }}
+          </h2>
+          <p class="sv-body-copy mt-4 max-w-md">
+            {{ valueStatement.sub }}
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- ============ PROCESS ============ -->
-    <section id="process" class="border-b border-white/10">
+    <section id="process">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">{{ processHeading.lead }}</h2>
@@ -490,17 +506,12 @@ onMounted(async () => {
         <div class="mt-14 grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:h-[min(640px,72vh)] lg:gap-10 xl:gap-12">
           <div class="flex h-full min-h-0 flex-col gap-5">
             <div
-              v-for="(step, i) in processSteps"
+              v-for="step in processSteps"
               :key="step.title"
               class="surface-product flex min-h-0 flex-1 flex-col rounded-[16px] p-5 sm:p-6"
             >
-              <div class="flex items-center gap-3">
-                <div class="icon-tile h-9 w-9 shrink-0">
-                  <UIcon :name="step.icon" class="size-4" />
-                </div>
-                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
-                  Step {{ i + 1 }}
-                </span>
+              <div class="icon-tile h-9 w-9 shrink-0">
+                <UIcon :name="step.icon" class="size-4" />
               </div>
               <h3 class="mt-3 text-lg font-semibold tracking-[-0.03em] text-white lg:text-xl">
                 {{ step.title }}
@@ -519,11 +530,10 @@ onMounted(async () => {
     </section>
 
     <!-- ============ CHURN SIGNALS ============ -->
-    <section id="churn-signals" class="border-b border-white/10">
+    <section id="churn-signals">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
           <div class="max-w-xl">
-            <p class="churn-overload-eyebrow">Churn signals</p>
             <h2 class="sv-section-heading">
               <span class="headline-interaction">{{ churnSignalsSection.headingAccent }}</span>
               {{ churnSignalsSection.headingRest }}

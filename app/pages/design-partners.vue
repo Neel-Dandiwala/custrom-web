@@ -95,7 +95,7 @@ onMounted(() => {
 <template>
   <div>
     <!-- HERO -->
-    <section class="hero-backdrop relative overflow-hidden border-b border-white/10">
+    <section class="hero-backdrop relative overflow-hidden">
       <div class="grid-overlay" />
       <div class="relative mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <h1 class="mx-auto max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
@@ -124,7 +124,7 @@ onMounted(() => {
     </section>
 
     <!-- MUTUAL VALUE -->
-    <section id="value" class="border-b border-white/10">
+    <section id="value">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">
@@ -135,8 +135,7 @@ onMounted(() => {
 
         <div class="mt-14 grid gap-6 lg:grid-cols-2">
           <div class="surface-product rounded-[16px] p-7 lg:p-8">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55">What you get</p>
-            <ul class="mt-5 space-y-4">
+            <ul class="space-y-4">
               <li v-for="item in getItems" :key="item.title" class="flex items-start gap-3">
                 <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-white/45" />
                 <div>
@@ -147,8 +146,7 @@ onMounted(() => {
             </ul>
           </div>
           <div class="surface-risk rounded-[16px] p-7 lg:p-8">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55">What we need</p>
-            <ul class="mt-5 space-y-4">
+            <ul class="space-y-4">
               <li v-for="item in askItems" :key="item.title" class="flex items-start gap-3">
                 <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-white/45" />
                 <div>
@@ -163,7 +161,7 @@ onMounted(() => {
     </section>
 
     <!-- APPLY -->
-    <section id="apply" class="border-b border-white/10">
+    <section id="apply">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="sv-section-heading">

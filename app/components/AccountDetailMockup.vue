@@ -133,14 +133,6 @@ const scoreDelta = account.scoreTo - account.scoreFrom
     :class="{ 'adm--compact': compact }"
     aria-label="Acme Corp account detail mockup"
   >
-    <div class="adm-back">
-      <UIcon
-        name="i-lucide-arrow-left"
-        class="size-3.5"
-      />
-      Back to dashboard
-    </div>
-
     <header class="adm-header">
       <div class="adm-header-top">
         <div class="adm-id">
@@ -457,15 +449,6 @@ const scoreDelta = account.scoreTo - account.scoreFrom
   --adm-risk: #fb7185;
   color: var(--adm-text);
   text-align: left;
-}
-
-.adm-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 14px;
-  font-size: 13px;
-  color: var(--adm-faint);
 }
 
 .adm-header {
@@ -988,11 +971,6 @@ const scoreDelta = account.scoreTo - account.scoreFrom
   margin-top: 3px;
   font-size: 12px;
   color: var(--adm-faint);
-}
-
-.adm--compact .adm-back {
-  margin-bottom: 10px;
-  font-size: 12px;
 }
 
 .adm--compact .adm-header {

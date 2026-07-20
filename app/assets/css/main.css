@@ -393,13 +393,14 @@ body {
 .hero-section .hero-laptop-scene {
   position: relative;
   z-index: 2;
-  /* Wide enough for laptop + phone overhang, centered as a pair */
+  /* Centered dashboard; phone overlaps without shifting it */
   width: min(1120px, 90vw);
   max-width: none;
-  margin: clamp(24px, 4vh, 48px) auto clamp(64px, 10vh, 120px);
-  padding: 0 clamp(16px, 2vw, 28px);
-  /* Reserve right rail so the phone sits inside the centered frame */
-  padding-right: clamp(152px, 18vw, 232px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: clamp(24px, 4vh, 48px);
+  margin-bottom: clamp(64px, 10vh, 120px);
+  padding: 0;
   transform: none;
   overflow: visible;
 }
@@ -413,10 +414,10 @@ body {
 .hero-phone-mockup {
   position: absolute;
   z-index: 5;
-  right: clamp(4px, 1vw, 12px);
-  /* Align to laptop bottom; nudge down for transparent PNG margin */
+  /* Hang just outside the laptop's right edge */
+  right: clamp(-72px, -6.5vw, -36px);
   bottom: 0;
-  width: min(320px, 34vw);
+  width: min(300px, 28vw);
   pointer-events: none;
   transform: translateY(4.75%);
 }
@@ -431,6 +432,7 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: none;
   margin: 0 auto;
   overflow: visible;
   isolation: isolate;
@@ -576,9 +578,9 @@ body {
 
 .laptop-scene {
   position: relative;
-  max-width: min(1240px, 96vw);
+  max-width: min(1120px, 90vw);
   margin: 0 auto;
-  padding: 0 clamp(20px, 3vw, 48px);
+  padding: 0;
 }
 
 .laptop-glow {
@@ -1142,9 +1144,9 @@ body {
 
   .hero-section .hero-laptop-scene {
     transform: none;
-    width: min(100%, 92vw);
+    width: min(100%, 94vw);
     margin: clamp(20px, 4vh, 36px) auto clamp(36px, 6vh, 64px);
-    padding: 0 clamp(16px, 4vw, 24px);
+    padding: 0;
   }
 
   .hero-section .laptop-device--showcase {
@@ -1152,7 +1154,7 @@ body {
   }
 
   .hero-section .laptop-scene {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .laptop-device--showcase .laptop-screen,
@@ -1366,6 +1368,110 @@ body {
   border: 0;
   background: transparent;
   overflow: hidden;
+}
+
+.fbo-landscape-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(320px, 48vw, 560px);
+  background:
+    radial-gradient(ellipse 70% 60% at 35% 55%, rgba(139, 92, 246, 0.14), transparent 72%);
+}
+
+.value-statement-section {
+  position: relative;
+  overflow: visible;
+}
+
+.value-statement-stage {
+  position: relative;
+  min-height: clamp(340px, 52vw, 560px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.value-statement-visual {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  /* Extend well past the text so the slope continues behind it */
+  width: min(100%, 1100px);
+  left: -6%;
+  pointer-events: none;
+  /* Soft edge fade — long falloff on all sides */
+  mask-image:
+    radial-gradient(
+      ellipse 92% 88% at 28% 48%,
+      #000 8%,
+      rgba(0, 0, 0, 0.92) 32%,
+      rgba(0, 0, 0, 0.55) 52%,
+      rgba(0, 0, 0, 0.18) 72%,
+      transparent 92%
+    ),
+    linear-gradient(to right, transparent 0%, #000 12%, #000 70%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 78%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 92% 88% at 28% 48%,
+      #000 8%,
+      rgba(0, 0, 0, 0.92) 32%,
+      rgba(0, 0, 0, 0.55) 52%,
+      rgba(0, 0, 0, 0.18) 72%,
+      transparent 92%
+    ),
+    linear-gradient(to right, transparent 0%, #000 12%, #000 70%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+}
+
+.value-statement-copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 34rem);
+  padding: clamp(24px, 4vw, 48px) 0;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 900px) {
+  .value-statement-stage {
+    display: block;
+    min-height: 0;
+    padding-top: clamp(220px, 58vw, 320px);
+  }
+
+  .value-statement-visual {
+    width: 120%;
+    left: -10%;
+    top: 0;
+    height: clamp(240px, 62vw, 360px);
+    bottom: auto;
+    mask-image:
+      radial-gradient(
+        ellipse 95% 90% at 50% 42%,
+        #000 10%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.35) 65%,
+        transparent 90%
+      ),
+      linear-gradient(to bottom, transparent 0%, #000 16%, #000 72%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse 95% 90% at 50% 42%,
+        #000 10%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.35) 65%,
+        transparent 90%
+      ),
+      linear-gradient(to bottom, transparent 0%, #000 16%, #000 72%, transparent 100%);
+    -webkit-mask-composite: source-in;
+  }
+
+  .value-statement-copy {
+    width: 100%;
+  }
 }
 
 .dp-input {

@@ -5,15 +5,17 @@
  */
 import * as THREE from 'three'
 import { DiscardMaterial, MeshTransmissionMaterial } from './hero/MeshTransmissionMaterial.js'
+import {
+  HERO_PLASMA_CFG,
+  PLASMA_FRAG,
+  PLASMA_VERT,
+  toPlasmaColor
+} from './hero/plasmaShader.js'
 
 const CFG = {
-  colors: [
-    [244, 236, 255],
-    [210, 95, 255],
-    [130, 12, 184]
-  ],
-  speed: 0.1,
-  size: 0.99,
+  colors: HERO_PLASMA_CFG.colors,
+  speed: HERO_PLASMA_CFG.speed,
+  size: HERO_PLASMA_CFG.size,
   cameraZ: 16.54,
   cubeY: 0,
   cubeZ: -9,
@@ -72,60 +74,7 @@ function syncLoop() {
   else stopLoop()
 }
 
-const PLASMA_VERT = /* glsl */ `
-varying vec2 vUv;
-void main() {
-  vUv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.);
-}
-`
-
-const PLASMA_FRAG = /* glsl */ `
-uniform float uTime;
-uniform float uSpeed;
-uniform float uSize;
-uniform vec3 uColor1;
-uniform vec3 uColor2;
-uniform vec3 uColor3;
-uniform vec2 uResolution;
-varying vec2 vUv;
-
-float w1 = 3.0;
-float w2 = 1.0;
-float w3 = 20.0;
-float A = 1.0;
-float R = 3.0;
-
-float horizontal(in vec2 xy, float t) {
-  return cos(w1 * xy.x + A * t);
-}
-float diagonal(in vec2 xy, float t) {
-  return cos(w2 * (xy.x * cos(t) + 5.0 * xy.y * sin(t)) + A * t);
-}
-float radial(in vec2 xy, float t) {
-  float x = 0.3 * xy.x - 0.5 + cos(t);
-  float y = 0.3 * xy.y - 0.5 + sin(t * 0.5);
-  return sin(w3 * sqrt(x * x + y * y + 1.0) + A * t);
-}
-
-void main() {
-  float t = uTime * uSpeed + 10000.;
-  vec2 scaledXY = gl_FragCoord.xy / uResolution.xy - 0.5;
-  scaledXY *= uSize;
-  scaledXY += 0.5;
-  vec2 xy = scaledXY;
-  float v = (horizontal(xy, t) + diagonal(xy, t) + radial(xy, t)) / 3.0;
-  float nv = (v + 1.0) * 0.5;
-  vec3 color = nv < 0.5
-    ? mix(uColor3, uColor2, nv * 2.0)
-    : mix(uColor2, uColor1, (nv - 0.5) * 2.0);
-  gl_FragColor = vec4(pow(color, vec3(R)), 1.0);
-}
-`
-
-function toColor([r, g, b]) {
-  return new THREE.Color(r / 255, g / 255, b / 255)
-}
+const toColor = toPlasmaColor
 
 function expoOut(t) {
   return t === 0 ? 0 : Math.pow(2, 10 * t - 10)

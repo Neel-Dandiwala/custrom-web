@@ -46,7 +46,7 @@ function isRouteLink(to) {
 <template>
   <UApp>
     <div class="page-haze min-h-svh text-white antialiased">
-      <header class="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl">
+      <header class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
           <NuxtLink to="/" class="flex items-center gap-2.5">
             <img src="/custrom_white.png" alt="Custrom" class="h-7 w-7 shrink-0 object-contain">
@@ -84,7 +84,7 @@ function isRouteLink(to) {
         <NuxtPage />
       </main>
 
-      <footer class="border-t border-white/10">
+      <footer>
         <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-2.5">
@@ -96,7 +96,6 @@ function isRouteLink(to) {
               <NuxtLink to="/design-partners" class="font-medium text-white/55 transition-colors hover:text-white">Design Partner Program</NuxtLink>
             </div>
           </div>
-          <div class="section-divider my-7" />
           <div class="flex flex-col items-start justify-between gap-3 text-sm text-white/45 sm:flex-row sm:items-center">
             <p>© {{ new Date().getFullYear() }} Custrom · custrom.com</p>
             <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
