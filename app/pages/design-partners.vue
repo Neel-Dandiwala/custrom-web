@@ -95,9 +95,9 @@ onMounted(() => {
 <template>
   <div>
     <!-- HERO -->
-    <section class="hero-backdrop relative overflow-hidden">
+    <section class="hero-backdrop relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden">
       <div class="grid-overlay" />
-      <div class="relative mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8 lg:py-36">
+      <div class="relative mx-auto w-full max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
         <h1 class="mx-auto max-w-3xl text-[clamp(2.3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
           Shape the future of
           <span class="headline-interaction">customer satisfaction</span>
@@ -168,9 +168,6 @@ onMounted(() => {
             Apply for the
             <span class="headline-interaction">Design Partner Cohort</span>
           </h2>
-          <p class="sv-body-copy mt-4">
-            Tell us about your team. If it's a fit, we'll book a 30 minute call and have you live within the first week.
-          </p>
         </div>
 
         <div class="mx-auto mt-10 max-w-2xl">

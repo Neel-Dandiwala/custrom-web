@@ -32,8 +32,7 @@ useSeoMeta({
 })
 
 const nav = [
-  { label: 'Process', to: '/#process' },
-  { label: 'Churn signals', to: '/#churn-signals' },
+  { label: 'Product', to: '/#process' },
   { label: 'Integrations', to: '/integrations' },
   { label: 'Design Partner Program', to: '/design-partners' }
 ]
